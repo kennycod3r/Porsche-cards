@@ -11,7 +11,11 @@
 
 *{
   box-sizing: border-box;
-  margin: 0;
+  /*border: 1px solid lightblue;*/
+}
+
+img{
+  width: 100%;
 }
 
 
