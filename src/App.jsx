@@ -1,13 +1,8 @@
-import Porche from './components/Porsche'
-import './App.css'
+import Porche from "./components/Porsche";
+import "./App.css";
 
 function App() {
-  
-  return (
-    <>
-     <Porche/>
-    </>
-  )
+  return <Porche />;
 }
 
-export default App
+export default App;

@@ -1,50 +1,66 @@
-import { useState } from "react";
-import PorscheCards from "./PorscheCard";
+import { useEffect, useState } from "react";
 import Dialog from "./Dialog";
-//import PaymentCalculator from "./PaymentCalculator";
-import BuildPorsche from "./BuildPorsche";
-import CarSvg from "../assets/carSvg.svg";
+import PCardForm from "../PorscheCardForm/PCardForm";
+import InteriorCards from "./Interior/InteriorCard";
+import interior from "../assets/images/interior.webp";
+import BlackPorsche from "../assets/images/blackPorshe.webp";
+import BluePorsche from "../assets/images/BluePorsche.webp";
+import WhitePorsche from "../assets/images/silverPorshe2.webp";
 
 export default function Porche() {
-  //<PaymentCalculator/>
   const [openDialog, setOpenDialog] = useState(false);
-  const [openBuild, setOpenBuild] = useState(false);
+  const [openExterior, setOpenExterior] = useState(false);
+  const [openInterior, setOpenInterior] = useState(false);
+  const [newCarColor, setNewCarColor] = useState(interior);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  function handleOpenBuild() {
-    setOpenBuild((prevState) => !prevState);
-  }
+  const handleResize = () => setWindowWidth(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleOpenInterior = () => setOpenInterior(prevState => !prevState);
+
+  const handleChangeCar = (color) => {
+    switch (color) {
+      case "white":
+        setNewCarColor(WhitePorsche);
+        break;
+      case "black":
+        setNewCarColor(BlackPorsche);
+        break;
+      case "darkblue":
+        setNewCarColor(BluePorsche);
+        break;
+      default:
+        setNewCarColor(BlackPorsche);
+        break;
+    }
+  };
+
+  const handleOpenExterior = () => setOpenExterior(prevState => !prevState);
+
+  useEffect(() => {
+    setNewCarColor(openExterior ? BlackPorsche : interior);
+  }, [openExterior]);
+
   return (
-    <>
-      <div className="container">
-        <PorscheCards handleOpenBuild={handleOpenBuild} />
-        {openBuild ? (
-          <>
-            <PorscheCards />
-            <PorscheCards />
-          </>
-        ) : (
-          <BuildPorsche />
-        )}
-
-        <div className="garage" onClick={() => setOpenDialog(!openDialog)}>
-          Garage: 0
-        </div>
-        <div className="garage" onClick={() => setOpenDialog(!openDialog)}>
-          Calculate payment
-        </div>
-        <div className="price-Area">
-          <div>
-            <img src={CarSvg} alt="carSvg" />
-          </div>
-          <div>
-            <p>find a Dealer <br/>
-            <span>$160,000</span>
-            </p>
-            
-          </div>
-        </div>
-        {openDialog ? <Dialog /> : null}
-      </div>
-    </>
+    <div className={`container ${windowWidth < 760 ? "flip-container" : ""}`}>
+      <InteriorCards
+        openExterior={openExterior}
+        openInterior={openInterior}
+        handleChangeCar={handleChangeCar}
+        handleOpenExterior={handleOpenExterior}
+      />
+      <PCardForm
+        handleOpenInterior={handleOpenInterior}
+        openExterior={openExterior}
+        openInterior={openInterior}
+        newCarColor={newCarColor}
+      />
+      {openDialog && <Dialog />}
+    </div>
   );
 }
