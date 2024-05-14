@@ -3,7 +3,6 @@ import CardListItem from "../CardListItem";
 import ColorPicker from "../ColorPicker";
 import Wheels from "../Wheels/Wheels";
 import textPara from "../../assets/Text";
-import PCardForm from "../../PorscheCardForm/PCardForm";
 
 const InteriorCards = ({
   openExterior,
@@ -14,7 +13,7 @@ const InteriorCards = ({
   return (
     <div className="right-items">
       <div className="card-wrapper">
-        <CardHeader openInterior={openInterior} />
+        <CardHeader openInterior={openInterior} openExterior={openExterior} />
         <ul>
           <CardListItem
             milesDes={"stearing"}
@@ -33,10 +32,10 @@ const InteriorCards = ({
         </ul>
         {!openInterior && (
           <div className="flex btn-container">
-            <button> Technical Specs</button>
-            <button className="btn2" onClick={handleOpenExterior}>
+            {!openExterior && <button> Technical Specs</button>}
+            <button className="btn2" onClick={handleOpenExterior} style={{padding: openExterior ? "0 15px": ""}}>
               {" "}
-              Build Your Exterior
+              {openExterior ? "Close " : null}Build Your Exterior
             </button>
           </div>
         )}

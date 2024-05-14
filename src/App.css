@@ -1,8 +1,13 @@
 :root {
   --borderLine: 1px solid rgb(217, 217, 217);
   --letterSpacing: 0.1px;
+  --transform: translate3d(100%, 0, 0);
+  --transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.transition-container {
+  transition: var(--transition);
+}
 h2 {
   font-size: 18px;
   margin: 0;
@@ -39,7 +44,7 @@ h2 {
   line-height: 1em;
   letter-spacing: var(--letterSpacing);
 }
-.flip-container{
+.flip-container {
   flex-direction: column-reverse;
 }
 .car-header-wrapper {
@@ -157,8 +162,8 @@ ul {
 .color-box {
   gap: 10px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .color {
   min-height: 50px;
@@ -222,16 +227,70 @@ ul {
   flex-direction: column;
   justify-content: space-between;
 }
-@media only screen and (max-width: 768px) {
+
+.speedometer {
+  height: 40px;
+  width: 40px;
+  padding: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5em;
+  left: 20px;
+  background-color: gray;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.speedometer:hover {
+  transform: scale(1.1);
+}
+.speedometer img {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 1008px) {
   .container {
-    min-width: 100%;
-  }
-  
-  .right-items {
-    width: auto;
-    overflow: hidden;
+    min-width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
   }
 
+  .interior-img {
+    min-width: 100%;
+    border-bottom: var(--borderLine);
+  }
+  .right-items {
+    width: auto;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+  }
+  .card-wrapper {
+    padding: 0;
+    min-width: auto;
+    overflow: hidden;
+  }
+  .card-wrapper ul {
+    padding: 15px;
+  }
+  .car-header {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .btn-like {
+    visibility: hidden;
+  }
+
+  .btn-container {
+    justify-content: center;
+    min-width: auto;
+  }
+  .header-car-img {
+    padding: 0;
+  }
   .small-screen {
     display: block;
   }
@@ -243,12 +302,36 @@ ul {
   }
   .color-box {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
   }
   .sticky {
     border-bottom: var(--borderLine);
   }
   .header-car-img {
     object-fit: contain;
+    padding-right: 3px;
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  .color-box {
+    grid-template-columns: 1fr 1fr;
+  }
+  .container {
+    min-width: auto;
+    min-height: auto;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .color-box {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .container {
+    gap: 0;
   }
 }

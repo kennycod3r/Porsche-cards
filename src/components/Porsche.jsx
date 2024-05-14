@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Dialog from "./Dialog";
 import PCardForm from "../PorscheCardForm/PCardForm";
 import InteriorCards from "./Interior/InteriorCard";
 import interior from "../assets/images/interior.webp";
@@ -8,7 +7,6 @@ import BluePorsche from "../assets/images/BluePorsche.webp";
 import WhitePorsche from "../assets/images/silverPorshe2.webp";
 
 export default function Porche() {
-  const [openDialog, setOpenDialog] = useState(false);
   const [openExterior, setOpenExterior] = useState(false);
   const [openInterior, setOpenInterior] = useState(false);
   const [newCarColor, setNewCarColor] = useState(interior);
@@ -21,7 +19,7 @@ export default function Porche() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleOpenInterior = () => setOpenInterior(prevState => !prevState);
+  const handleOpenInterior = () => setOpenInterior((prevState) => !prevState);
 
   const handleChangeCar = (color) => {
     switch (color) {
@@ -40,7 +38,7 @@ export default function Porche() {
     }
   };
 
-  const handleOpenExterior = () => setOpenExterior(prevState => !prevState);
+  const handleOpenExterior = () => setOpenExterior((prevState) => !prevState);
 
   useEffect(() => {
     setNewCarColor(openExterior ? BlackPorsche : interior);
@@ -60,7 +58,6 @@ export default function Porche() {
         openInterior={openInterior}
         newCarColor={newCarColor}
       />
-      {openDialog && <Dialog />}
     </div>
   );
 }
