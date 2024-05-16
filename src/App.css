@@ -11,7 +11,7 @@ ul {
 .transition-container {
   transition: var(--transition);
 }
-.tSpecs-img{
+.tSpecs-img {
   position: relative;
 }
 h2 {
@@ -42,11 +42,10 @@ h2 {
 }
 
 .car-header h1 {
-  font-size:  clamp(25px, 1.5vw, 19px);
+  font-size: clamp(25px, 1.5vw, 19px);
   font-weight: bolder;
   line-height: 1em;
   letter-spacing: -1px;
-  
 }
 .flip-container {
   flex-direction: column-reverse !important;
@@ -70,7 +69,7 @@ h2 {
 }
 
 .btn-like {
-  letter-spacing: .04px;
+  letter-spacing: 0.04px;
   line-height: 10px;
   font-weight: 400;
   color: #181818c2;
@@ -262,6 +261,13 @@ h2 {
   background-color: rgb(233, 237, 240);
 }
 
+.calculate{
+  bottom: auto;
+  left: auto;
+  top: 10px;
+  right: 4px;
+}
+
 .white-overlay img {
   width: 45px;
   background-color: #000000dd;
@@ -293,7 +299,6 @@ h2 {
 .titleLogo {
   justify-content: center;
   padding: 10px;
- 
 }
 .TechnicalSpecs {
   padding: 2px 0;
@@ -312,17 +317,66 @@ h2 {
   grid-template-columns: 1fr 1fr;
 }
 
-.text-area p{
+.text-area p {
   border-left: var(--borderLine);
   padding: 15px;
 }
 
+.int-list {
+  border-bottom: var(--borderLine);
+  position: relative;
+}
+.int-list div {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.int-list span {
+  color: rgb(102, 102, 102);
+  font-weight: bold;
+}
+.checkbox--checked,
+.checkbox {
+  height: 1.8em;
+  width: 1.8em;
+  overflow: hidden !important;
+  cursor: pointer;
+  border-radius: 0.3em;
+  padding: 0;
+  margin-bottom: 3px;
+}
+
+.checkbox--checked {
+  background-color: #0e0e0f;
+  border: 2px solid rgb(211, 217, 218);
+}
+
+.checkbox {
+  background-color: rgb(232, 236, 239);
+  border: 2px solid #7a7a7ad1;
+}
+
+.checkbox--checked img {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.check--absolute {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.smooth {
+  transition: all 0.4s cubic-bezier(0.68, 0.55, 0.27, 1.55);
+}
 @media only screen and (max-width: 1008px) {
   .container {
     padding: 0;
   }
 
-  .text-area{
+  .text-area {
     display: block;
   }
 
@@ -346,7 +400,7 @@ h2 {
     text-align: center;
     padding: 10px 0;
   }
-  
+
   .btn-container {
     justify-content: center;
     min-width: auto;

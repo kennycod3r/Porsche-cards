@@ -3,6 +3,9 @@ import CardListItem from "../CardListItem";
 import ColorPicker from "../ColorPicker";
 import Wheels from "../Wheels/Wheels";
 import textPara from "../../assets/Text";
+import InteriorLists from "./InteriorLists";
+import BlueInt from "../../assets/images/blueInt.webp";
+import blackster from "../../assets/images/blackster.webp";
 
 const InteriorCards = ({
   openExterior,
@@ -26,10 +29,14 @@ const InteriorCards = ({
           <CardListItem
             milesDes={"Exterior Options | Technology"}
             rangeEpa={"No option selected"}
-            performance={
-              "Assistance Systems w/ Performance Battery Plus"
-            }
+            performance={"Assistance Systems w/ Performance Battery Plus"}
           />
+          {openInterior && (
+            <>
+              <InteriorLists ImageURL={blackster} />
+              <InteriorLists ImageURL={BlueInt} />
+            </>
+          )}
         </ul>
         {!openInterior && (
           <div className="flex btn-container">

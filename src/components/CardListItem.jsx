@@ -7,7 +7,6 @@ export default function CardListItem({milesDes, performance, rangeEpa}) {
         </h2>
       </div>
       <div>
-  
         <br />
        {performance}
       </div>
