@@ -16,8 +16,8 @@ export default function PCardForm({
       {!openExterior && (
         <div className="flex btn-container">
           {!openInterior && <button> Technical Specs</button>}
-          <button className="btn2" onClick={handleOpenInterior} style={{padding: openInterior ? "0 25px": ""}}>
-            {openInterior ? "Close " : null}Build Your Interior
+          <button className="btn2" onClick={handleOpenInterior}>
+            {openInterior ? "Close " : ""}Build Your Interior
           </button>
         </div>
       )}

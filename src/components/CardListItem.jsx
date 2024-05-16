@@ -3,11 +3,11 @@ export default function CardListItem({milesDes, performance, rangeEpa}) {
     <li className="card-list">
       <div>
         <h2>
-          <b>{milesDes}</b>
+          <span>{milesDes}</span>
         </h2>
       </div>
       <div>
-        <b>{rangeEpa}</b>
+  
         <br />
        {performance}
       </div>

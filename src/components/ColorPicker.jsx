@@ -14,7 +14,7 @@ export default function ColorPicker({handleChangeCar}){
         <div className="b-container">
           <h2 className="Title">Exterior Colors</h2>
           <div className="fsb">
-            <h2 className="sub-Title">Standard Color</h2> <div className="color-price">$0</div>
+            <h2 className="sub-Title">Standard Color</h2> <b className="color-price">$0</b>
           </div>
           <div className="color-box">
             <div className="inner-color-box">
@@ -29,7 +29,7 @@ export default function ColorPicker({handleChangeCar}){
 
           <div>
             <div className="fsb">
-              <h2 className="sub-Title">Metalic Color</h2> <div className="color-price">$0</div>
+              <h2 className="sub-Title">Metalic Color</h2> <b className="color-price">$0</b>
             </div>
 
             <div className="color-box">

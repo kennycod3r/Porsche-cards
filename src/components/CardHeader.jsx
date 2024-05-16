@@ -7,12 +7,14 @@ const CardHeader = ({ openInterior, openExterior }) => {
     <div className="car-header-wrapper">
       <div className="car-header">
         <h1>
-          Tycan{" "}
+          911 Carrera 4{" "}
           <span className="number">
-            {openInterior ? "14 interior" : "13 exterior"}
+            {openInterior ? " interior" : " exterior"}
           </span>
         </h1>
-        {!openInterior && <div className="btn-like">from $ 90,900</div>}
+        {!openInterior && (
+          <div className="btn-like">Your dream becomes reality</div>
+        )}
       </div>
       <div className="transition-container flex">
         {!openExterior ? (

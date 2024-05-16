@@ -1,86 +1,87 @@
 :root {
   --borderLine: 1px solid rgb(217, 217, 217);
   --letterSpacing: 0.1px;
-  --transform: translate3d(100%, 0, 0);
   --transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .transition-container {
   transition: var(--transition);
+}
+.tSpecs-img{
+  position: relative;
 }
 h2 {
   font-size: 18px;
   margin: 0;
 }
 .container {
-  border: 1px solid rgb(213, 212, 212);
-  margin: 0 auto;
+  border: var(--borderLine);
   position: relative;
   display: flex;
   align-items: start;
-  padding: 1em;
+  gap: 10px;
   background-color: white;
-  box-shadow: 0 0 10px #52525235;
+  transition: var(--transition);
 }
-
 .right-items {
   width: 40%;
   padding: 10px 1em;
 }
+
 .card-wrapper {
   box-shadow: 0 0 10px #52525235;
   padding: 0 2em;
-  background-color: white;
   display: flex;
   flex-direction: column;
-  min-width: 400px;
+  min-width: 420px;
   border-radius: 10px;
 }
 
 .car-header h1 {
-  font-weight: 400;
-  font-size: 1.5em;
+  font-size:  clamp(25px, 1.5vw, 19px);
   font-weight: bolder;
   line-height: 1em;
-  letter-spacing: var(--letterSpacing);
+  letter-spacing: -1px;
+  
 }
 .flip-container {
-  flex-direction: column-reverse;
+  flex-direction: column-reverse !important;
 }
+
 .car-header-wrapper {
   border-bottom: var(--borderLine);
 }
 
 .header-car-img {
-  width: 100%;
-  overflow: hidden;
   min-height: 150px;
   object-fit: cover;
+  /*border: 1px solid red;*/
 }
 
-.number {
+.number,
+.btn-like {
   color: rgba(46, 46, 46, 0.418);
-  font-size: 0.6em;
+  font-size: 15px;
   letter-spacing: -0.1em;
 }
 
 .btn-like {
-  letter-spacing: -0.01em;
+  letter-spacing: .04px;
   line-height: 10px;
-  font-size: 15px;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
+  font-weight: 400;
+  color: #181818c2;
 }
 
 .card-list {
   list-style: none;
   padding: 5px 0;
   border-bottom: var(--borderLine);
-  letter-spacing: -0.7px;
-  font-size: 15px;
+  letter-spacing: -0.5px;
+  font-size: 14px;
 }
 
 .btn-container {
@@ -93,13 +94,13 @@ ul {
   min-width: 153px;
   cursor: pointer;
   border: none;
-  padding: 1.5em 0;
+  padding: 1.5em 15px;
+  border-radius: 1.5px;
 }
 
 .show-more {
-  color: black;
-  margin: 1em 0;
-  line-height: 2rem;
+  color: inherit;
+  text-transform: capitalize;
   cursor: pointer;
 }
 
@@ -107,25 +108,28 @@ ul {
   background-color: #181818f7;
   color: aliceblue;
 }
+
+.btn2:hover {
+  background-color: #212121f6;
+  color: white;
+}
 .b-expand-headers {
   font-weight: 600;
   padding: 0 1em;
   border-bottom: var(--borderLine);
 }
 
-.b-car-img img {
-  object-fit: contain;
-}
-
 .blue-para {
   background-color: rgba(129, 168, 233, 0.5);
   padding: 1em;
   border-radius: 0.5em;
+  line-height: 1.5em;
+  letter-spacing: 0.1px;
 }
 .sticky {
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: white !important;
   z-index: 999;
 }
 
@@ -138,7 +142,6 @@ ul {
 }
 
 .b-container {
-  background-color: white;
   display: flex;
   border-radius: 10px;
   flex-direction: column;
@@ -147,7 +150,8 @@ ul {
   box-shadow: 0 0 10px #52525235;
 }
 
-.Title {
+.Title,
+.sub-Title {
   font-size: 25px;
   font-weight: 500;
   letter-spacing: -1px;
@@ -155,10 +159,8 @@ ul {
 }
 .sub-Title {
   font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
 }
+
 .color-box {
   gap: 10px;
   margin-bottom: 10px;
@@ -167,12 +169,10 @@ ul {
 }
 .color {
   min-height: 50px;
-  min-width: 130px;
   border-radius: 5px;
   transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .color-price {
-  font-weight: bold;
   color: rgb(71, 71, 71);
   padding-right: 10px;
 }
@@ -180,7 +180,7 @@ ul {
   line-height: 1px;
 }
 .color:hover {
-  border: 1px solid #7b7b7bf7;
+  border: 1px solid silver;
   transform: scale(1.1);
 }
 
@@ -214,13 +214,14 @@ ul {
   position: absolute;
   bottom: 0;
   font-size: smaller;
-  padding: 4px 0.5em;
+  padding: 2px 0.5em;
   left: 10px;
-  border-radius: 10px;
+  border: 2px solid black;
+  border-radius: 1em;
 }
 .interior {
   margin-top: 10px;
-  position: sticky;
+  position: sticky !important;
   top: 0;
   background-color: white;
   display: flex;
@@ -236,7 +237,7 @@ ul {
   position: absolute;
   top: 5em;
   left: 20px;
-  background-color: gray;
+  background-color: rgb(65, 66, 66);
   cursor: pointer;
   transition: var(--transition);
 }
@@ -248,30 +249,96 @@ ul {
   width: 30px;
   height: 30px;
 }
+.white-overlay {
+  overflow: hidden;
+  box-shadow: 0 0 10px #52525235;
+  padding: 10px;
+  padding-bottom: 0;
+  width: 200px;
+  position: absolute;
+  bottom: 1em;
+  border-radius: 10px;
+  left: 20px;
+  background-color: rgb(233, 237, 240);
+}
+
+.white-overlay img {
+  width: 45px;
+  background-color: #000000dd;
+  padding: 10px;
+  border-radius: 2em;
+  transition: var(--transition);
+}
+.white-overlay img:hover {
+  background-color: #1f1f1fdd;
+}
+.white-overlay li {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  border-bottom: var(--borderLine);
+}
+
+.white-overlay p {
+  font-size: small;
+  color: rgb(43, 43, 43);
+}
+.titleLogo img,
+.titleLogo2 img {
+  width: 70px;
+  height: 70px;
+}
+
+.titleLogo {
+  justify-content: center;
+  padding: 10px;
+ 
+}
+.TechnicalSpecs {
+  padding: 2px 0;
+}
+.titleLogo2 {
+  position: absolute;
+  bottom: 1.5em;
+  right: 20px;
+}
+
+.text-area {
+  padding: 10px;
+  display: grid;
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 1em;
+  grid-template-columns: 1fr 1fr;
+}
+
+.text-area p{
+  border-left: var(--borderLine);
+  padding: 15px;
+}
 
 @media only screen and (max-width: 1008px) {
   .container {
-    min-width: auto;
-    min-height: auto;
-    margin: 0;
     padding: 0;
+  }
+
+  .text-area{
+    display: block;
   }
 
   .interior-img {
     min-width: 100%;
     border-bottom: var(--borderLine);
   }
-  .right-items {
+  .right-items,
+  .card-wrapper {
     width: auto;
+    min-width: auto;
     height: auto;
     padding: 0;
     overflow: hidden;
   }
-  .card-wrapper {
-    padding: 0;
-    min-width: auto;
-    overflow: hidden;
-  }
+
   .card-wrapper ul {
     padding: 15px;
   }
@@ -279,11 +346,7 @@ ul {
     text-align: center;
     padding: 10px 0;
   }
-
-  .btn-like {
-    visibility: hidden;
-  }
-
+  
   .btn-container {
     justify-content: center;
     min-width: auto;
@@ -297,11 +360,7 @@ ul {
   .big-screen {
     display: none;
   }
-  .color {
-    min-width: auto;
-  }
   .color-box {
-    display: grid;
     padding: 10px;
     grid-template-columns: 1fr 1fr;
   }
@@ -311,19 +370,6 @@ ul {
   .header-car-img {
     object-fit: contain;
     padding-right: 3px;
-  }
-}
-
-@media only screen and (min-width: 1020px) {
-  .color-box {
-    grid-template-columns: 1fr 1fr;
-  }
-  .container {
-    min-width: auto;
-    min-height: auto;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
   }
 }
 

@@ -9,6 +9,7 @@ const InteriorCards = ({
   openInterior,
   handleOpenExterior,
   handleChangeCar,
+  handleOpenTechnical,
 }) => {
   return (
     <div className="right-items">
@@ -16,26 +17,28 @@ const InteriorCards = ({
         <CardHeader openInterior={openInterior} openExterior={openExterior} />
         <ul>
           <CardListItem
-            milesDes={"stearing"}
-            rangeEpa={"wheel"}
+            milesDes={"Exterior Colors & Wheels"}
+            rangeEpa={""}
             performance={
               "282 mi** (AMCI Testing Range) w/ Performance Battery Plus"
             }
           />
           <CardListItem
-            milesDes={"stearing"}
-            rangeEpa={"wheel"}
+            milesDes={"Exterior Options | Technology"}
+            rangeEpa={"No option selected"}
             performance={
-              "282 mi** (AMCI Testing Range) w/ Performance Battery Plus"
+              "Assistance Systems w/ Performance Battery Plus"
             }
           />
         </ul>
         {!openInterior && (
           <div className="flex btn-container">
-            {!openExterior && <button> Technical Specs</button>}
-            <button className="btn2" onClick={handleOpenExterior} style={{padding: openExterior ? "0 15px": ""}}>
+            {!openExterior && (
+              <button onClick={handleOpenTechnical}>Technical Specs</button>
+            )}
+            <button className="btn2" onClick={handleOpenExterior}>
               {" "}
-              {openExterior ? "Close " : null}Build Your Exterior
+              {openExterior ? "Close " : ""}Build Your Exterior
             </button>
           </div>
         )}
@@ -43,11 +46,8 @@ const InteriorCards = ({
       {openExterior && (
         <>
           <p className="blue-para ">
-            {textPara.slice(0, 150)}... <br />
-            <a className="show-more" href="www.nowhere.com">
-              {" "}
-              Show more
-            </a>
+            {textPara}... <br />
+            <span className="show-more"> Show more</span>
           </p>
           <div className="">
             <ColorPicker handleChangeCar={handleChangeCar} />
